@@ -12,15 +12,7 @@ class DeepLTranslator(BaseTranslator):
 
     def translate_string(self, text: str) -> str:
         """Translate a specific string.
-
-    Test with curl:
-    $ curl https://api-free.deepl.com/v2/translate \\
-        -d auth_key=YOUR-API-KEY-HERE \\
-        -d "text=Hello, world!" \\
-        -d "target_lang=ES"
-
-    :param text: string to translate
-    :return: string translation
+    ...
     """
     if not isinstance(text, str):
         return text
