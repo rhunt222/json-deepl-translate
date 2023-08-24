@@ -2,6 +2,7 @@
 import os
 import time
 import json
+import re
 from urllib import request, parse
 from .base import BaseTranslator
 from settings import DEEPL_API_ENDPOINT
