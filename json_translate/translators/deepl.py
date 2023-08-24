@@ -36,7 +36,7 @@ class DeepLTranslator(BaseTranslator):
     # Identify variables surrounded by curly brackets
     variables = re.findall(r'\{.*?\}', text)
     for i, var in enumerate(variables):
-        placeholder = f"PLACEHOLDER_{i}"
+        placeholder = f"UNIQUE_PLACEHOLDER_{i}_END"
         text = text.replace(var, placeholder)
 
     time.sleep(self.sleep)
@@ -96,7 +96,7 @@ class DeepLTranslator(BaseTranslator):
 
     # Replace placeholders with original variables
     for i, var in enumerate(variables):
-        placeholder = f"PLACEHOLDER_{i}"
+        placeholder = f"UNIQUE_PLACEHOLDER_{i}_END"
         dec_text = dec_text.replace(placeholder, var)
 
     self.cached[text] = dec_text
