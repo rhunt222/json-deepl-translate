@@ -31,6 +31,10 @@ class DeepLTranslator(BaseTranslator):
         for i, var in enumerate(variables):
             placeholder = f"UNIQUE_PLACEHOLDER_{i}_END"
             text = text.replace(var, placeholder)
+
+        # Replace special characters with placeholders
+        text = text.replace('®', 'REGISTERED_SIGN_PLACEHOLDER')
+        text = text.replace('™', 'TRADEMARK_SIGN_PLACEHOLDER')
     
         time.sleep(self.sleep)
     
@@ -91,6 +95,10 @@ class DeepLTranslator(BaseTranslator):
         for i, var in enumerate(variables):
             placeholder = f"UNIQUE_PLACEHOLDER_{i}_END"
             dec_text = dec_text.replace(placeholder, var)
+
+        # Replace special character placeholders back to original characters
+        dec_text = dec_text.replace('REGISTERED_SIGN_PLACEHOLDER', '®')
+        dec_text = dec_text.replace('TRADEMARK_SIGN_PLACEHOLDER', '™')
     
         self.cached[text] = dec_text
     
